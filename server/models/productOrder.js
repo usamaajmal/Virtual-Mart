@@ -29,34 +29,22 @@ module.exports.addProductOrder = (data,callback) =>{
 	console.log(data);
 	let add = {
 		
-		shopId : data.shopId,
-        customerId : data.customerId,
-        totalAmount : data.totalAmount,
-        status : data.status,
-        date : data.date,
-        productList : data.productList
+		productId: data.productId,
+		orderId : data.orderId
 	}
 	productorder.create(add,callback);
 }
 
 module.exports.removeProductOrder = (id,callback) =>{
 	let query = {_id:id};
-	productorder.remove(query,callback);
+	productorder.findOneAndRemove(query,callback);
 }
 
 module.exports.editProductOrder = (id,data,option,callback) =>{
 	let query = {_id:id};
 	let update = {
-		shopId : data.shopId,
-        customerId : data.customerId,
-        totalAmount : data.totalAmount,
-        status : data.status,
-        date : data.date,
-        productList : data.productList
+		productId: data.productId,
+		orderId : data.orderId
 	}
-	product.findOneAndUpdate(id,update,option,callback);
-}
-module.exports.getProductOrderByName = (name,callback) =>{
-	let query = {company:name};
-	productorder.findOne(query,callback);
+	product.findOneAndUpdate(query,update,option,callback);
 }

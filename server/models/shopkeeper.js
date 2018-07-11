@@ -5,9 +5,13 @@ const shopKeeperSchema = mongoose.Schema({
 		type:mongoose.Schema.Types.ObjectId,
 		ref : 'User'
 	},
-	shopId : {
-		type:mongoose.Schema.Types.ObjectId,
-		ref : 'Shop'
+	name : {
+		type:String,
+		required:true
+	},
+	cnic : {
+		type:String,
+		required:true
 	},
 	phone : {
 		type:String,
@@ -29,31 +33,27 @@ module.exports.getShopkeeperById = (id,callback) =>{
 }
 
 module.exports.addShopkeeper = (data,callback) =>{
-	console.log(data);
 	let add = {
 		userId : data.userId,
-		shopId : data.shopId,
-		phone : data.phone
+		phone : data.phone,
+		name : data.name,
+		cnic : data.cnic
 	}
 	shopkeeper.create(add,callback);
 }
 
 module.exports.removeShopkeeper = (id,callback) =>{
 	let query = {_id:id};
-	shopkeeper.remove(query,callback);
+	shopkeeper.findOneAndRemove(query,callback);
 }
 
 module.exports.editShopkeeper = (id,data,option,callback) =>{
 	let query = {_id:id};
 	let update = {
 		userId : data.userId,
-		shopId : data.shopId,
-		phone : data.phone
-		
+		phone : data.phone,
+		name : data.name,
+		cnic : data.cnic
 	}
-	shopkeeper.findOneAndUpdate(id,update,option,callback);
-}
-module.exports.getShopkeeperByName = (name,callback) =>{
-	let query = {company:name};
-	shopkeeper.findOne(query,callback);
+	shopkeeper.findOneAndUpdate(query,update,option,callback);
 }

@@ -44,7 +44,7 @@ router.get('/:id',(req,res)=>{
 router.put('/:id',(req,res) => {
 		let id = req.params.id;
 		let edit = req.body.Shop;
-		shop.editShop(id,edit,{},(err,user) =>{
+		shop.editShop(id,edit,{},(err,shop) =>{
 			if(err){
 				console.log("ERROR at Editshop");
 				res.send(err);

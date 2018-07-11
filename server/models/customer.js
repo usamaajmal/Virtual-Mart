@@ -41,7 +41,6 @@ module.exports.getCustomerById = (id,callback) =>{
 }
 
 module.exports.addCustomer = (data,callback) =>{
-	console.log(data);
 	let add = {
 		userId : data.userId,
 		name : data.name,
@@ -55,7 +54,7 @@ module.exports.addCustomer = (data,callback) =>{
 
 module.exports.removeCustomer = (id,callback) =>{
 	let query = {_id:id};
-	customer.remove(query,callback);
+	customer.findOneAndRemove(query,callback);
 }
 
 module.exports.editCustomer = (id,data,option,callback) =>{
@@ -68,9 +67,5 @@ module.exports.editCustomer = (id,data,option,callback) =>{
         billingAddress : data.billingAddress,
         deliveryAddress : data.deliveryAddress
 	}
-	customer.findOneAndUpdate(id,update,option,callback);
-}
-module.exports.getCustomerByName = (name,callback) =>{
-	let query = {company:name};
-	customer.findOne(query,callback);
+	customer.findOneAndUpdate(query,update,option,callback);
 }

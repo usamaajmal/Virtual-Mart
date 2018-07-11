@@ -38,9 +38,7 @@ module.exports.getSaleById = (id,callback) =>{
 }
 
 module.exports.addSale = (data,callback) =>{
-	console.log(data);
-	let add = {
-		
+	let add = {		
 		shopId : data.shopId,
         customerId : data.customerId,
         shopkeeperId : data.shopkeeperId,
@@ -52,7 +50,7 @@ module.exports.addSale = (data,callback) =>{
 
 module.exports.removeSale = (id,callback) =>{
 	let query = {_id:id};
-	sale.remove(query,callback);
+	sale.findOneAndRemove(query,callback);
 }
 
 module.exports.editSale = (id,data,option,callback) =>{
@@ -64,9 +62,5 @@ module.exports.editSale = (id,data,option,callback) =>{
         orderId : data.orderId,
         paidAmount : data.paidAmount
 	}
-	sale.findOneAndUpdate(id,update,option,callback);
-}
-module.exports.getSaleByName = (name,callback) =>{
-	let query = {company:name};
-	sale.findOne(query,callback);
+	sale.findOneAndUpdate(query,update,option,callback);
 }

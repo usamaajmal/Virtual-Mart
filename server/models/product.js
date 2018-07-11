@@ -44,9 +44,7 @@ module.exports.getProductById = (id,callback) =>{
 }
 
 module.exports.addProduct = (data,callback) =>{
-	console.log(data);
-	let add = {
-		
+	let add = {		
 		shopId : data.shopId,
         name : data.name,
         quantity : data.quantity,
@@ -60,7 +58,7 @@ module.exports.addProduct = (data,callback) =>{
 
 module.exports.removeProduct = (id,callback) =>{
 	let query = {_id:id};
-	product.remove(query,callback);
+	product.findOneAndRemove(query,callback);
 }
 
 module.exports.editProduct = (id,data,option,callback) =>{
@@ -74,9 +72,5 @@ module.exports.editProduct = (id,data,option,callback) =>{
         details : data.details,
         category : data.category
 	}
-	product.findOneAndUpdate(id,update,option,callback);
-}
-module.exports.getProductByName = (name,callback) =>{
-	let query = {company:name};
-	product.findOne(query,callback);
+	product.findOneAndUpdate(query,update,option,callback);
 }

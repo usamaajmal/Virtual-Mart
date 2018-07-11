@@ -44,9 +44,9 @@ router.get('/:id',(req,res)=>{
 router.put('/:id',(req,res) => {
 		let id = req.params.id;
 		let edit = req.body.Sale;
-		user.editSale(id,edit,{},(err,sale) =>{
+		sale.editSale(id,edit,{},(err,sale) =>{
 			if(err){
-				console.log("ERROR at Editsale");
+				console.log("ERROR at Edit sale");
 				res.send(err);
 			}
 			console.log("sale edited");
@@ -59,7 +59,7 @@ router.delete('/:id',(req,res) =>{
 	let id = req.params.id;
 	sale.removeSale(id,(err,sale) =>{
 		if(err){
-			console.log("ERROR at deletesale");
+			console.log("ERROR at delete sale");
 			res.send(err);
 		}
 		console.log("sale deleted");

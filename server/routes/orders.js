@@ -36,7 +36,7 @@ router.get('/:id',(req,res)=>{
 		 	res.send(err);
 		 }
 		 console.log("retrived the specified order");
-		 res.send(user);
+		 res.send(order);
 	})
 })
 
