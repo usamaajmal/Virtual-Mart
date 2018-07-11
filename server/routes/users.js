@@ -7,7 +7,7 @@ router.post('/add',(req,res)=>{
 	let obj = req.body.User;
 	user.addUser(obj,(err,user)=>{
 		 if (err) {
-		 	console.log("Error at getUserbyId");
+		 	console.log("Error at addUser");
 		 	res.send(err);
 		 }
 		 console.log("new user in db");
@@ -35,7 +35,7 @@ router.get('/:id',(req,res)=>{
 		 	console.log("Error at getUserbyId");
 		 	res.send(err);
 		 }
-		 console.log("retrived the specified used");
+		 console.log("retrived the specified user");
 		 res.send(user);
 	})
 })
