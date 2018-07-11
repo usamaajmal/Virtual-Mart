@@ -28,7 +28,7 @@ const shopSchema = mongoose.Schema({
 });
 
 
-let Shop = module.exports = mongoose.model('Shop',shopSchema);
+let shop = module.exports = mongoose.model('Shop',shopSchema);
 
 /*Requests*/
 

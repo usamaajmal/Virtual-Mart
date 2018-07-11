@@ -13,7 +13,7 @@ const ProductOrderSchema = mongoose.Schema({
 });
 
 
-let ProductOrder = module.exports = mongoose.model('ProductOrder',ProductOrderSchema);
+let productorder = module.exports = mongoose.model('ProductOrder',ProductOrderSchema);
 
 /*Requests*/
 

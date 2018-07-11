@@ -31,7 +31,7 @@ const productSchema = mongoose.Schema({
 });
 
 
-let Product = module.exports = mongoose.model('Product',productSchema);
+let product = module.exports = mongoose.model('Product',productSchema);
 
 /*Requests*/
 

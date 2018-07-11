@@ -16,7 +16,7 @@ const shopKeeperSchema = mongoose.Schema({
 });
 
 
-let Shopkeeper = module.exports = mongoose.model('Shopkeeper',shopKeeperSchema);
+let shopkeeper = module.exports = mongoose.model('Shopkeeper',shopKeeperSchema);
 
 /*Requests*/
 

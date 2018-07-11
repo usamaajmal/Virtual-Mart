@@ -15,7 +15,7 @@ const OrderSchema = mongoose.Schema({
 		required : true
     },
     status : {
-        type : string,
+        type : String,
 		required : true
     },
     date : {
@@ -37,7 +37,7 @@ const OrderSchema = mongoose.Schema({
 });
 
 
-let Order = module.exports = mongoose.model('Order',OrderSchema);
+let order = module.exports = mongoose.model('Order',OrderSchema);
 
 /*Requests*/
 
